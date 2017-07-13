@@ -22,7 +22,7 @@ export class FlightSearchComponent implements OnInit {
     // like the DatePicker
     direct: boolean;
     oneWay: boolean;
-    date: number = 1000 * 60 * 60 * 30;
+    date: number = new Date().getTime();
 
     airports = ['Graz', 'Hamburg', 'Berlin', 'Bern'];
 
