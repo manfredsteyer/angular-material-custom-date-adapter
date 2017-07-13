@@ -1,0 +1,88 @@
+<md-card class="search">
+  <form>
+
+    <md-card-title>Search for Flights</md-card-title>
+    <md-card-content>
+
+      <md-input-container>
+        <input [(ngModel)]="from" name="from" mdTooltip="Airport of departure" mdInput placeholder="from">
+      </md-input-container>
+
+      <md-input-container>
+        <input [(ngModel)]="to" name="to" #toField [mdAutocomplete]="auto" mdTooltip="Airport of destination" mdInput placeholder="to">
+      </md-input-container>
+
+      <md-autocomplete #auto="mdAutocomplete">
+        <md-option *ngFor="let airport of airports$ | async" [value]="airport">
+          {{ airport }}
+        </md-option>
+      </md-autocomplete>
+
+      <md-input-container>
+        <input [(ngModel)]="date" name="date" mdInput [mdDatepicker]="myDatepicker" mdTooltip="Date of departure">
+        <button mdSuffix [mdDatepickerToggle]="myDatepicker"></button>
+      </md-input-container>
+      <md-datepicker #myDatepicker></md-datepicker>
+      {{date}}
+      <section class="example-section">
+        <md-checkbox [(ngModel)]="oneWay" name="oneWay" class="example-margin">Ony Way</md-checkbox>
+        <md-checkbox [(ngModel)]="direct" name="direct" class="example-margin">Direct</md-checkbox>
+      </section>
+
+
+    </md-card-content>
+    <md-card-actions>
+      <button md-button (click)="search()">Search</button>
+    </md-card-actions>
+  </form>
+</md-card>
+
+
+<div fxLayout="row" fxLayoutWrap="true">
+
+  <div *ngFor="let f of flights" fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100">
+    <md-card>
+      <md-card-title>{{f.from}} - {{f.to}}</md-card-title>
+      <md-card-subtitle>
+        <md-chip-list>
+          <md-chip color="primary">Direct</md-chip>
+        </md-chip-list>
+      </md-card-subtitle>
+
+      <md-card-content>
+        {{f.date | date: 'dd.MM.yyyy HH:mm'}}
+      </md-card-content>
+      <md-card-actions style="text-align: right">
+        <button md-mini-fab (click)="select(f)">
+      <md-icon>add</md-icon>
+    </button>
+      </md-card-actions>
+    </md-card>
+  </div>
+
+</div>
+
+
+
+<md-card class="basket">
+  <md-card-title>Basket</md-card-title>
+  <md-card-content>
+
+    <md-list>
+      <md-list-item *ngIf="selectedFlight">
+
+        <md-icon md-list-icon>flight_takeoff</md-icon>
+
+        <p md-line><strong>{{selectedFlight.from}} - {{selectedFlight.to}}</strong> </p>
+        <p md-line>
+          Id: {{selectedFlight.id }}
+        </p>
+        <p md-line>
+          {{selectedFlight.date | date:'dd.MM.yyyy HH:mm'}}
+        </p>
+      </md-list-item>
+    </md-list>
+
+
+  </md-card-content>
+</md-card>

@@ -1,0 +1,73 @@
+body::before {
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url('assets/sea-1993791_1920.jpg');
+    content: '';
+    will-change: transform;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    position: fixed;
+}
+
+/*
+@media (max-width: 512px)  and (min-resolution: 1.5dppx),
+       (max-width: 1024px) and (max-resolution: 1.5dppx) {
+  body::before {
+    background-image: url('assets/sea-1993791_1920.jpg');
+  }
+}
+@media (min-width: 513px)  and (max-width: 1024px) and (min-resolution: 1.5dppx),
+       (min-width: 1025px) and (max-width: 2048px) and (max-resolution: 1.5dppx)  {
+  body::before {
+    background-image: url('assets/sea-1993791_1920.jpg');
+  }
+}
+@media (min-width: 1025px) and (min-resolution: 1.5dppx),
+       (min-width: 2049px) and (max-resolution: 1.5dppx) {
+  body::before {
+    background-image: url('assets/sea-1993791_1920.jpg');
+  }
+}
+*/
+
+.app-title, md-toolbar a, md-toolbar md-icon {
+  color: white;
+}
+
+md-toolbar a {
+  margin-right: 20px;
+}
+
+md-sidenav md-toolbar a, md-sidenav md-toolbar {
+  color: black;
+}
+
+md-card {
+  margin:10px;
+}
+
+md-card.search {
+  margin-top: 200px;
+}
+
+md-card.basket {
+  margin-top: 20px;
+}
+
+main {
+  margin-top: 100px; 
+  margin-left:15%; 
+  margin-right:15%
+}
+
+.nav-right {
+  margin-left:auto; 
+  margin-right:70px;
+}
+
+.inherit-background-color {
+  background-color: inherit;
+}

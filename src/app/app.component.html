@@ -1,0 +1,37 @@
+
+
+<md-sidenav-container fullscreen class="inherit-background-color">
+
+  <md-toolbar class="top" class="inherit-background-color">
+    <button md-button (click)="sidenav.toggle()">
+      <md-icon>menu</md-icon>
+    </button>
+    
+    <span class="app-title">Holiday42</span>
+
+    <div class="nav-right">
+      <a>Login</a>
+      <a>Contact</a>
+      <a>FAQ</a>
+    </div>
+
+  </md-toolbar>
+
+  <main>
+      <flight-search></flight-search>
+  </main>
+
+  <md-sidenav #sidenav mode="side">
+   <md-toolbar>
+        <a>Flights</a>
+      <md-toolbar-row>
+         <a>Passenger</a>
+      </md-toolbar-row>
+      <md-toolbar-row>
+         <a>Your Bookings</a>
+      </md-toolbar-row>
+   </md-toolbar>
+</md-sidenav>
+
+</md-sidenav-container>
+
